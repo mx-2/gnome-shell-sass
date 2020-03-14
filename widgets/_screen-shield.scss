@@ -66,7 +66,11 @@
 }
 
 #lockDialogGroup {
-  background-color: lighten(#2e3436, 8%);
+  background: url(resource:///org/gnome/shell/theme/gdm-wallpaper.svg.png);
+  background-size: 5120px 1200px;
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
 }
 
 #unlockDialogNotifications {
