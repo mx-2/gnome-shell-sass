@@ -40,7 +40,7 @@ $bubble_borders_color: lighten($borders_color, if($variant=='light', 0%, 5%));
 // $bubble_borders_color: if($variant == 'light', rgba(255,255,255,0.1), rgba(0,0,0,0.3));
 
 // hover
-$hover_bg_color: if($variant=='light', darken($bg_color, 3%), lighten($bg_color, 5%));
+$hover_bg_color: lighten(saturate($button_bg_color, 25%), 25%);
 $hover_fg_color: if($variant=='light', darken($fg_color, 5%), lighten($fg_color, 5%));
 $hover_borders_color: lighten($borders_color,if($variant=='light', 5%, 3%));
 
@@ -161,17 +161,26 @@ stage {
     @include button(undecorated);
   } @else {
     @include button(normal);
+    border-color: desaturate($selected_bg_color, 60%);
+    background-color: desaturate(darken($selected_bg_color, 40%), 40%);
   }
 
   &:focus {
     @include button(focus);
+    border-color: desaturate($selected_bg_color, 30%);
+    background-color: desaturate(darken($selected_bg_color, 30%), 20%);
   }
 
   &:hover {
     @include button(hover);
+    border-color: desaturate($selected_bg_color, 60%);
+    background-color: desaturate(darken($selected_bg_color, 20%), 60%);
   }
 
   &:active {
     @include button(active);
+    border-color: desaturate($selected_bg_color, 30%);
+    background-color: desaturate(darken($selected_bg_color, 10%), 20%);
   }
+
 }
