@@ -66,7 +66,11 @@
 }
 
 #lockDialogGroup {
-  background-color: lighten(#2e3436, 8%);
+  background: url(file:///opt/gdm-wallpaper/wallpaper.png);
+  background-size: 1920px 1080px;
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
 }
 
 #unlockDialogNotifications {
