@@ -17,8 +17,9 @@
 
 .nm-dialog-scroll-view {
   padding:$base_padding;
+  border: 2px solid $borders_color;
   border-radius: $base_border_radius;
-  background-color: $base_color;
+  background-color: darken($bg_color, 3%);
 }
 
 .nm-dialog-item {
