@@ -23,9 +23,12 @@
 
 // content
 .search-section-content {
-  background-color: $system_overlay_bg_color;
-  color: $system_fg_color;
+  background-color: transparentize(lighten($osd_bg_color, 5%), 0.2);
+  border: 2px solid $osd_outer_borders_color;
   border-radius: $modal_radius*1.5;
+  box-shadow:inset 0 0 0 1px solid $outer_borders_color, 0 2px 4px 0 $shadow_color;
+  text-shadow: 0 1px if($variant == 'light', rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+  color: $osd_fg_color;
   padding: $base_padding*2;
   margin:0 $base_margin*3;
 }

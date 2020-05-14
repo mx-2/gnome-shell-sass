@@ -233,7 +233,7 @@ stage {
 %osd_panel {
   color: $osd_fg_color;
   background-color: $osd_bg_color;
-  border: 1px solid $osd_outer_borders_color;
+  border: 2px solid $osd_outer_borders_color;
   border-radius: 999px;
   padding: $base_padding*2;
 
@@ -256,12 +256,13 @@ stage {
 // buttons on OSD elements
 %osd_button {
   @extend %button_common;
-  @include button(normal, $tc:$osd_fg_color, $c:$osd_bg_color, $osd:true);
-  &:insensitive { @include button(insensitive, $tc:$osd_fg_color, $c:$osd_bg_color, $osd:true);}
-  &:focus { @include button(focus, $tc:$osd_fg_color, $c:$osd_bg_color, $osd:true);}
-  &:hover { @include button(hover, $tc:$osd_fg_color, $c:$osd_bg_color, $osd:true);}
-  &:active { @include button(active, $tc:$osd_fg_color, $c:$osd_bg_color, $osd:true);}
-  &:outlined,&:checked { @include button(checked, $tc:$osd_fg_color, $c:$osd_bg_color, $osd:true);}
+  @include button(undecorated);
+  &:insensitive { @include button(undecorated, $tc:$osd_fg_color, $c:$osd_bg_color);}
+  &:focus { @include button(focus, $tc:$osd_fg_color, $c:$osd_bg_color);}
+  &:hover { @include button(hover, $tc:$osd_fg_color, $c:$osd_bg_color);}
+  &:active { @include button(active, $tc:$osd_fg_color, $c:$osd_bg_color);}
+  &:outlined,&:checked { @include button(checked, $tc:$osd_fg_color, $c:$osd_bg_color);}
+  border-width: 2px;
 }
 
 %osd_button_flat {
