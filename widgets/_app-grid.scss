@@ -35,8 +35,10 @@ $app_icon_size: 96px;
 
 // expanded folder
 .app-folder-dialog {
+  border: 2px solid $osd_outer_borders_color;
   border-radius: $modal_radius*2;
-  background-color: $dash_background_color;
+  background-color: transparentize(darken($osd_bg_color,10%), 0.05);
+  padding: 12px 0px 12px 0px;
 
   & .folder-name-container {
     padding: 24px 36px 0;
