@@ -37,7 +37,8 @@ $app_grid_fg_color: #fff;
 // expanded folder
 .app-folder-dialog {
   border-radius: $modal_radius * 1.5;
-  border: 1px solid $osd_outer_borders_color;
+  border: 2px solid $osd_outer_borders_color;
+  spacing: 12px;
   background-color: transparentize(darken($osd_bg_color,10%), 0.05);
   padding: 12px;
 
