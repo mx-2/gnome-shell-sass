@@ -25,6 +25,10 @@ $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 
 /* Global Values */
 
+* {
+  -st-icon-style: regular !important;
+}
+
 // padding, margin and spacing
 $base_padding: 6px;
 $base_margin: 4px;
