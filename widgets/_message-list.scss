@@ -18,7 +18,7 @@
     > StIcon {
       icon-size: $base_icon_size*3; // 48px
       margin-bottom: $base_margin*3;
-      -st-icon-style: symbolic;
+      -st-icon-style: regular;
     }
   }
 }
@@ -74,7 +74,7 @@
     // icon size and color
     > StIcon {
       icon-size: $large_icon_size; // 32px
-      -st-icon-style: symbolic;
+      -st-icon-style: regular;
     }
 
     // fallback
