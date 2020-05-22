@@ -1,0 +1,7 @@
+$variant: 'dark';
+$contrast: 'normal';
+
+@import "_colors"; //use gtk colors
+@import "_drawing";
+@import "_common";
+@import "_widgets";
