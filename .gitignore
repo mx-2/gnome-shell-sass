@@ -1,0 +1,11 @@
+*.css
+*.gresource
+*.png
+*.tar
+*.tar.gz
+*.tar.zst
+/icons/
+/package/
+/pkg/
+/release/
+/src/
