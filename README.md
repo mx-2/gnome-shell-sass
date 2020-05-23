@@ -1,3 +1,47 @@
+# Good-Old-Shell
+
+A Gnome shell theme which aims to bring back the look of the old
+transparent-black and colorful icons default shell from earlier Gnome versions
+to Gnome 3.38.
+
+Note: To get colorful icons you have to install an icon theme which provides
+full color shell icons as well.
+
+## Installation
+Place the generated gnome-shell.3.38.css to
+~/.themes/good-old-shell/gnome-shell/gnome-shell.css
+
+Then open gnome-tweaks, enable the user-themes extension and select
+Good-Old-shell as shell theme.
+
+## GDM (advanced users)
+
+With Good-Old-Shell, you can theme your GDM login screen and use a custom
+wallpaper for it. Therefore, you have to install Good-Old-Shell globally by
+replacing your system theme with Good-Old-Shell
+(Ensure you have a backup first! Currently, this does not work on Ubuntu 20.04.)
+
+Usually the system theme should be at:
+/usr/share/gnome-shell/gnome-shell-theme.gresource.
+
+The script build\_gresource builds the required gresource file from the
+current system gnome-shell-theme.gresource and embeds Good-Old-Shell in it.
+The size of the given wallpaper file is used as screen resolution.
+By default, the wallpaper is loaded from:
+/opt/gdm-wallpaper/wallpaper.png
+
+You can use the provided gdm-wallpaper.svg to render some "shadow" on top of
+your wallpaper to improve readability of gdm's controls.
+
+Furthermore, you can use the build\_gresource script to embed custom, otherwise
+non-themable, icons for "no-notifications" and "no-events" in the gresource
+file. To do so, create and folder called "icons" next to the script and place
+your icons in it.
+
+---
+Original README below
+---
+
 # GNOME Shell Sass
 GNOME Shell Sass is a project intended to allow the sharing of the
 theme sources in sass between gnome-shell and other projects like
