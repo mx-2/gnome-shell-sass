@@ -30,7 +30,8 @@ $dash_border_radius: $modal_radius + $dash_padding;
 
 // background of the dash behind app icons
 .dash-background {
-  background-color: $dash_background_color;
+  background-color: $osd_bg_color;
+  border: 2px solid $osd_borders_color;
   border-radius: $dash_border_radius;
   padding: $dash_padding;
   spacing: $base_padding;
