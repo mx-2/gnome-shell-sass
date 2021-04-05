@@ -11,6 +11,7 @@ $_dark_base_color: $dark_5;
 $base_color: if($variant == 'light', $light_1, $dark_4);
 $bg_color: transparentize(if($variant == 'light', $light_1, $dark_5), 0.2);
 $fg_color: if($variant == 'light', $dark_4, $light_3);
+$dash_highlight_color: transparentize($fg_color, 0.9);
 
 $selected_fg_color: $light_1;
 $selected_bg_color: $blue_3;

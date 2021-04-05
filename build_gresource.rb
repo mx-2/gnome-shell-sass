@@ -70,7 +70,11 @@ end
 if File.file?("#{SRCDIR}/icons/no-notifications.svg")
   FileUtils.cp("#{SRCDIR}/icons/no-notifications.svg", "#{WRKDIR}/theme/")
 end
-FileUtils.cp("#{SRCDIR}/gnome-shell.css", "#{WRKDIR}/theme/gnome-shell.css")
+
+css_filename = "#{WRKDIR}/theme/gnome-shell.css"
+css = File.read("#{SRCDIR}/gnome-shell.css")
+css = css.gsub("overview-wallpaper.png", "file://#{File.expand_path("#{SRCDIR}/overview-wallpaper.png")}")
+File.write(css_filename, css)
 
 # Compile
 files = Dir.glob("#{WRKDIR}/theme/*").map do |file|
