@@ -5,7 +5,12 @@
 }
 
 #overviewGroup {
-  background-color: $system_bg_color;
+  background: url("overview-wallpaper.svg");
+  /*background-size: 1920px 1080px;*/
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
+
 }
 
 .overview-controls {

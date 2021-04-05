@@ -4,6 +4,7 @@
 $base_color: if($variant == 'light', #fff, lighten(desaturate(#241f31, 20%), 2%));
 $bg_color: if($variant == 'light', #f6f5f4, rgba(0, 0, 0, 0.8));
 $fg_color: if($variant == 'light', #2e3436, #eeeeec);
+$dash_highlight_color: transparentize($fg_color, 0.9);
 
 $selected_fg_color: #fff;
 $selected_bg_color: if($variant == 'light', #3584e4, darken(#3584e4, 10%));
