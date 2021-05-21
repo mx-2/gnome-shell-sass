@@ -10,6 +10,9 @@ WRKDIR = "#{ENV["TMPDIR"] || "/tmp"}/_gdm"
 gnome_version, result = Open3.capture2("gnome-shell --version")
 raise "get version failed" unless result.success?
 gnome_version = gnome_version.match(/^GNOME Shell (\d+\.\d+)(:?\.\d+)?$/)[1]
+if gnome_version.match?(/^4\d\./)
+  gnome_version = gnome_version.match(/^(\d+)\./)[1]
+end
 
 create_backup = false
 gst_in = "/usr/share/gnome-shell/gnome-shell-theme.gresource"
@@ -83,9 +86,10 @@ end
 if File.file?("#{__dir__}/icons/no-notifications.svg")
   FileUtils.cp("#{__dir__}/icons/no-notifications.svg", "#{WRKDIR}/theme/")
 end
+FileUtils.cp("#{__dir__}/overview-wallpaper.svg", "#{WRKDIR}/theme/")
 
 css_filename = "#{WRKDIR}/theme/gnome-shell.css"
-if ["3.36", "3.38", "40.0"].include?(gnome_version)
+if ["3.36", "3.38", "40"].include?(gnome_version)
   css = File.read("#{__dir__}/gnome-shell.#{gnome_version}.css")
   css = css.gsub(%r!
     (\#lockDialogGroup\ \{
