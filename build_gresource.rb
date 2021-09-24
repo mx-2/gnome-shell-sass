@@ -89,7 +89,7 @@ end
 FileUtils.cp("#{__dir__}/overview-wallpaper.svg", "#{WRKDIR}/theme/")
 
 css_filename = "#{WRKDIR}/theme/gnome-shell.css"
-if ["3.36", "3.38", "40"].include?(gnome_version)
+if ["3.36", "3.38", "40", "41"].include?(gnome_version)
   css = File.read("#{__dir__}/gnome-shell.#{gnome_version}.css")
   css = css.gsub(%r!
     (\#lockDialogGroup\ \{
