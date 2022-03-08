@@ -177,6 +177,12 @@
 }
 
 .login-dialog {
+  background: url(file:///usr/share/themes/good-old-shell/gnome-shell/login-dialog-frame.png);
+  /*background-size: 1920px 1080px;*/
+  background-size: cover;
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
   StEntry {
     @if $variant=='dark' {
       $_gdm_entry_bg: darken($system_bg_color, 3%);
