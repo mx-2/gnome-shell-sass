@@ -129,25 +129,32 @@
   }
 }
 
-
 // buttons
-// since buttons are all flat an borderless now the mixin is simpler
-
-@mixin button($t, $tc:$fg_color, $c:$bg_color) {
-
-$button_bg_color: mix($tc, $c, 5%);
+@mixin button($t, $tc:$fg_color, $c:$bubble_buttons_color, $shadow:true) {
+  $button_bg_color: $c;
+  $button_hover_color: lighten($button_bg_color, 25%);
+  $button_border_color: lighten($c, 40%);
+  $button_shadow: 0 1px 1px 0 $shadow_color;
 //
 // Button drawing function
 //
 // $t:    button type,
 // $c:    base button colors, derived from fg_color
 // $tc:    base button colors, derived from fg_color
+// $shadow: button has shadow
 //
 // possible $t values:
 // normal, hover, active, insensitive, insensitive-active,
 // backdrop, backdrop-active, backdrop-insensitive, backdrop-insensitive-active,
 // osd, osd-hover, osd-active, osd-insensitive, osd-backdrop, undecorated
 //
+
+  @if $shadow and not ($t==undecorated or $t==insensitive) {
+    border: 1px solid $button_border_color;
+    @include draw_shadows($button_shadow);
+    text-shadow: 0 1px $text_shadow_color;
+    icon-shadow: 0 1px $text_shadow_color;
+  }
 
   // normal button
   @if $t==normal {
@@ -161,7 +168,7 @@ $button_bg_color: mix($tc, $c, 5%);
     background-color: mix($button_bg_color, $selected_bg_color, 90%);
     box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.4);
     &:hover {
-      background-color: mix(lighten($button_bg_color, 3%), $selected_bg_color, 90%);
+      background-color: mix(lighten($button_hover_color, 10%), $selected_bg_color, 90%);
       box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.3);
     }
     &:active {
@@ -173,7 +180,7 @@ $button_bg_color: mix($tc, $c, 5%);
   // hover button
   @else if $t==hover {
     color: $tc;
-    background-color: lighten($button_bg_color, 3%);
+    background-color: $button_hover_color;
   }
 
   // active button
@@ -204,7 +211,7 @@ $button_bg_color: mix($tc, $c, 5%);
       box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.4);
     }
     &:hover, &:focus { 
-      background-color: lighten($selected_bg_color, 5%);
+      background-color: lighten($button_hover_color, 5%);
       color: lighten($selected_fg_color, 5%);
     }
     &:active {
@@ -295,18 +302,18 @@ $button_bg_color: mix($tc, $c, 5%);
     @include button(undecorated);
     box-shadow: none !important;
   } @else {
-    @include button(normal);
+    @include button(normal, $c:$bg_color);
   }
 
   &:focus {
-    @include button(focus);
+    @include button(focus, $c:$bg_color);
   }
 
   &:hover {
-    @include button(hover);
+    @include button(hover, $c:$bg_color);
   }
 
   &:active {
-    @include button(active);
+    @include button(active, $c:$bg_color);
   }
 }
