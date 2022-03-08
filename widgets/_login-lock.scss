@@ -24,6 +24,12 @@ $_gdm_dialog_width: 25em;
   .login-dialog-prompt-entry {
     @extend %system_entry;
   }
+  background: url(file:///usr/share/themes/good-old-shell/gnome-shell/login-dialog-frame.png);
+  /*background-size: 1920px 1080px;*/
+  background-size: cover;
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
 }
 
 // buttons on login screen
@@ -219,7 +225,12 @@ $_gdm_dialog_width: 25em;
 }
 
 #lockDialogGroup {
-  background-color: $_gdm_bg;
+  background: url(file:///usr/share/themes/good-old-shell/gnome-shell/gdm-wallpaper.png);
+  /*background-size: 1920px 1080px;*/
+  background-size: cover;
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
 }
 
 // Clock
