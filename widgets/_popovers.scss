@@ -1,14 +1,26 @@
 /* Popovers/Menus */
 
+$popover_arrow_height: 12px;
+
 // the popover itself
 .popup-menu-boxpointer {
-  -arrow-rise: $base_margin+2px; // distance from the panel & screen edge
+  -arrow-border-radius: $modal_radius;
+  -arrow-background-color: $osd_bg_color;
+  -arrow-border-width: 2px;
+  -arrow-border-color: $borders_color;
+  -arrow-base: $popover_arrow_height * 2;
+  -arrow-rise: $popover_arrow_height;
+  -arrow-box-shadow: 0 1px rgba(0,0,0,0.5);
+  background-color: transparent;
+
+  margin: $base_margin; // used as distance from the screen edge
 }
 
 // container of the popover menu
 .popup-menu {
   min-width: 15em;
   color: $fg_color;
+  background-color: transparent;
 
   //.popup-status-menu-item {font-weight: normal;  color: pink;} //dunno what that is
   &.panel-menu {
@@ -20,9 +32,8 @@
 .popup-menu-content {
   padding: $base_padding;
   border-radius: $modal_radius*1.25;
-  border: 1px solid $borders_edge;
-  box-shadow: 0 2px 4px 0 $shadow_color;
-  background-color: $bg_color;
+  border: none;
+  background-color: transparent;
 }
 
 // menu items
@@ -37,8 +48,8 @@
   &:rtl {padding-right: $base_padding;}
 
   &:focus, &:hover {
-    background-color: $hover_bg_color !important;
-    &:active { background-color: $active_bg_color !important;}
+   background-color: $menu_hover_bg_color !important;
+   &:active { background-color: $active_bg_color !important;}
   }
 
   &:checked {background-color: $checked_bg_color !important;}
@@ -47,6 +58,9 @@
     margin-bottom: 0;
     box-shadow: inset 0 -1px 0 0 darken($checked_bg_color, 5%);
     border-radius: $base_border_radius $base_border_radius 0 0;
+    border-top: 1px solid $borders_color;
+    border-left: 1px solid $borders_color;
+    border-right: 1px solid $borders_color;
     &:focus,&:hover { background-color: lighten($checked_bg_color, 3%) !important;}
     &:active { background-color: lighten($checked_bg_color, 5%) !important;}
   }
@@ -86,6 +100,7 @@
 .popup-sub-menu {
   background-color: $checked_bg_color;
   border-radius: 0 0 $base_border_radius $base_border_radius;
+  border: 1px solid $borders_color;
 
   .popup-menu-ornament {
     min-width: $base_icon_size !important;
@@ -100,10 +115,10 @@
       border-radius: 0 0 $base_border_radius $base_border_radius;
     }
 
-    &:focus,&:hover { background-color: $hover_bg_color !important;}
+    &:focus,&:hover { background-color: lighten($menu_hover_bg_color, 10%) !important;}
     &:checked {
-      background-color: $checked_bg_color !important;
-      &:focus,&:hover { background-color: lighten($checked_bg_color, 8%) !important;}
+      background-color: lighten($checked_bg_color, 10%) !important;
+      &:focus,&:hover { background-color: lighten($menu_hover_bg_color, 10%) !important;}
     }
     &:active { background-color: $active_bg_color !important;}
   }

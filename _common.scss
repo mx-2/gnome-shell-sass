@@ -29,9 +29,6 @@ $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 $base_padding: 6px;
 $base_margin: 4px;
 
-// border radii
-$base_border_radius: 8px;
-
 // radii of things that display over other things, e.g. popovers
 $modal_radius: $base_border_radius*2; // 24px
 
@@ -128,8 +125,6 @@ stage {
 // buttons in dialogs/notifications
 // lighter in color and have a greater radius
 
-$bubble_button_radius:$base_border_radius*1.25;
-
 %bubble_button {
   padding: $base_padding * 2;
   font-weight: bold !important;
@@ -137,13 +132,13 @@ $bubble_button_radius:$base_border_radius*1.25;
   &:ltr {margin-right: 1px;}
   &:rtl {margin-left: 1px;}
 
-  @include button(normal, $c:$bubble_buttons_color);
-  &:insensitive { @include button(insensitive, $c:$bubble_buttons_color);}
-  &:focus { @include button(focus, $c:$bubble_buttons_color);}
-  &:hover { @include button(hover, $c:$bubble_buttons_color);}
-  &:active { @include button(active, $c:$bubble_buttons_color);}
-  &:checked { @include button(checked, $c:$bubble_buttons_color);}
-  
+  @include button(normal);
+  &:insensitive { @include button(insensitive, $shadow:false);}
+  &:focus { @include button(focus, $shadow:false);}
+  &:hover { @include button(hover, $shadow:false);}
+  &:active { @include button(active, $shadow:false);}
+  &:checked { @include button(checked, $shadow:false);}
+
   &:first-child:ltr {
     border-radius: 0 0 0 $bubble_button_radius; 
   }
