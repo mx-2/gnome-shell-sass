@@ -172,12 +172,12 @@ stage {
 // buttons on OSD elements
 // that are undecorated by default and use OSD colors
 %osd_button {
-  @include button(undecorated);
-  &:insensitive { @include button(undecorated, $c:$osd_bg_color);}
-  &:focus { @include button(focus, $c:$osd_bg_color);}
-  &:hover { @include button(hover, $c:$osd_bg_color);}
-  &:active { @include button(active, $c:$osd_bg_color);}
-  &:outlined,&:checked { @include button(checked, $c:$osd_bg_color);}
+  @include button(normal, $c:$osd_bg_color);
+  &:insensitive { @include button(undecorated);}
+  &:focus { @include button(focus);}
+  &:hover { @include button(hover);}
+  &:active { @include button(active);}
+  &:outlined,&:checked { @include button(checked);}
   border-width: 2px;
 }
 

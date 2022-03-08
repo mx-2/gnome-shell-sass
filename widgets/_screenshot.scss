@@ -95,8 +95,8 @@ $screenshot_ui_button_red: $error_color;
   padding: $base_padding $base_padding*2;
   background-color: transparent;
   &:hover, &:focus { background-color: lighten($hover_bg_color, 5%); }
-  &:active { background-color: lighten($active_bg_color,5%); }
-  &:checked { background-color: white; color: black; }
+  &:active { background-color: lighten($bubble_buttons_color,5%); }
+  &:checked { background-color: $bubble_buttons_color; color: black; }
 
   border-radius: $modal_radius - $screenshot_ui_shot_cast_spacing;
 
