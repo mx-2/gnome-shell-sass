@@ -70,7 +70,13 @@ end
 if File.file?("#{SRCDIR}/icons/no-notifications.svg")
   FileUtils.cp("#{SRCDIR}/icons/no-notifications.svg", "#{WRKDIR}/theme/")
 end
-FileUtils.cp("#{SRCDIR}/gnome-shell.css", "#{WRKDIR}/theme/gnome-shell.css")
+
+css_filename = "#{WRKDIR}/theme/gnome-shell.css"
+css_file_prefix = css_filename.sub(/\.css$/, "")
+css = File.read("#{SRCDIR}/gnome-shell.css")
+File.write("#{css_file_prefix}-dark.css", css)
+File.write("#{css_file_prefix}-high-contrast.css", css)
+File.write("#{css_file_prefix}-light.css", css)
 
 # Compile
 files = Dir.glob("#{WRKDIR}/theme/*").map do |file|
