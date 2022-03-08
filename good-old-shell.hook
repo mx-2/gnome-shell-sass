@@ -1,0 +1,11 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=gnome-shell
+Target=gdm
+
+[Action]
+Description=Install good-old-shell as default
+When=PostTransaction
+Exec=/usr/share/themes/good-old-shell/utils/build_gresource.rb --create-backup --install
