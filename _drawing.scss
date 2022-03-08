@@ -135,6 +135,7 @@
 // $t:    button type,
 // $c:    base button colors, derived from fg_color
 // $tc:    base button colors, derived from fg_color
+// $shadow: button has shadow
 //
 // possible $t values:
 // normal, hover, active, insensitive, insensitive-active,
@@ -143,48 +144,35 @@
 //
 // since buttons are all flat an borderless now the mixin is simpler
 
-@mixin button($t, $tc:$fg_color, $c:$bg_color, $flat: false, $osd: false) {
-
+// XXX @mixin button($t, $tc:$fg_color, $c:$bg_color, $flat: false, $osd: false) {
+@mixin button($t, $tc:$fg_color, $c:$bubble_buttons_color, $shadow:true) {
   $button_bg_color: mix($tc, $c, $button_mix_factor);
+  $button_hover_color: lighten($button_bg_color, 25%);
+  $button_border_color: lighten($c, 40%);
+  $button_shadow: 0 1px 1px 0 $shadow_color;
   transition-duration: 100ms;
 
-  @if $osd {
-    $button_bg_color: transparentize($tc, 0.9);
+  @if $shadow and not ($t==undecorated or $t==insensitive) {
+    border: 1px solid $button_border_color;
+    @include draw_shadows($button_shadow);
+    text-shadow: 0 1px $text_shadow_color;
+    icon-shadow: 0 1px $text_shadow_color;
   }
 
   // normal button
   @if $t==normal {
     color: $tc;
     background-color: $button_bg_color;
-    @if $flat {
-      background-color: transparent;
-    }
     @if $is_highcontrast {
       box-shadow: inset 0 0 0 1px $hc_inset_color;
-    }
-  }
-
-  // focused button
-  @if $t==focus {
-    color: $tc;
-    background-color: mix($button_bg_color, $selected_bg_color, 90%);
-    box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.4) !important;
-    &:hover {
-      background-color: mix(lighten($button_bg_color, 3%), $selected_bg_color, 90%);
-      box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.3) !important;
-    }
-    &:active {
-      background-color: mix(lighten($button_bg_color, 6%), $selected_bg_color, 90%);
-      box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.3) !important;
     }
   }
 
   // hover button
   @else if $t==hover {
     color: $tc;
-    background-color: if($variant == 'light', darken($button_bg_color, 3%), lighten($button_bg_color, 3%));
-
-    @if $is_highcontrast == "true" {
+    background-color: $button_hover_color;
+    @if $is_highcontrast {
       box-shadow: inset 0 0 0 1px lighten($button_inset_color, 3%);
       background-color: mix(lighten($button_bg_color, 3%), $button_inset_color, 10%);
     }
@@ -193,23 +181,30 @@
   // active button
   @else if $t==active {
     color: $tc;
-    background-color: if($variant == 'light', darken($button_bg_color, 6%), lighten($button_bg_color, 6%));
-    @if $is_highcontrast == "true" {
-      box-shadow: inset 0 0 0 1px lighten($button_inset_color, 6%);
-      background-color: mix(lighten($button_bg_color, 6%), $button_inset_color, 10%);
-    }
+    background-color:  lighten($button_bg_color, 6%);
   }
 
   // checked button
   @else if $t==checked {
     color: $tc;
-    background-color: if($variant == 'light', darken($button_bg_color, 9%), lighten($button_bg_color, 9%));
-    @if $is_highcontrast == "true" {
-      box-shadow: inset 0 0 0 1px lighten($button_inset_color, 9%);
-      background-color: mix(lighten($button_bg_color, 9%), $button_inset_color, 10%);
-    }
+    background-color: lighten($button_bg_color, 9%);
     &:hover { background-color: lighten($button_bg_color, 12%);}
     &:active { background-color: lighten($button_bg_color, 15%);}
+  }
+
+  // focused button
+  @if $t==focus {
+    color: $tc;
+    background-color: mix($button_bg_color, $selected_bg_color, 90%);
+    box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.4) !important;
+    &:hover {
+      background-color: mix(lighten($button_hover_color, 10%), $selected_bg_color, 90%);
+      box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.3);
+    }
+    &:active {
+      background-color: mix(lighten($button_bg_color, 6%), $selected_bg_color, 90%);
+      box-shadow: inset 0 0 0 2px transparentize($selected_bg_color, 0.3) !important;
+    }
   }
 
   // insensitive button
@@ -226,8 +221,8 @@
     &:focus {
       box-shadow: inset 0 0 0 2px transparentize($selected_fg_color, .4) !important;
     }
-    &:hover, &:focus {
-      background-color: lighten($selected_bg_color, 5%);
+    &:hover, &:focus { 
+      background-color: lighten($button_hover_color, 5%);
       color: lighten($selected_fg_color, 5%);
     }
     &:active {

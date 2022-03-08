@@ -31,7 +31,7 @@
 
 /* Calendar */
 .calendar {
-  @include card(flat);
+  @include card;
   margin-top: 0;
 
   // month header
@@ -64,7 +64,18 @@
   .calendar-day {
     @extend %numeric;
     @extend %smaller;
-    @extend .button, .flat;
+
+    @include button(undecorated, $c:$card_bg_color);
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      @include button(hover, $c:$card_bg_color);
+    }
+    &:active {
+      @include button(active, $c:$card_bg_color);
+    }
 
     border-radius: 99px;
     height: 3em !important;
@@ -92,12 +103,12 @@
     }
 
     &.calendar-other-month {
-      color: transparentize($insensitive_fg_color, 0.7) !important;
+      color: transparentize($insensitive_fg_color, 0.5) !important;
       font-weight: normal;
     }
 
     &.calendar-today {
-      @extend .button, .default;
+      @include button(default);
       color: $selected_fg_color; /* override weekends */
     }
 
