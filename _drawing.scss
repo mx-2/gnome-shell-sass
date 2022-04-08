@@ -286,22 +286,24 @@
   @if $flat {
     .overview-icon { background-color: transparent;}
   } @else {
-    .overview-icon { background-color: transparentize($color, .93); }
+    .overview-icon {
+      background-color: transparentize($color, .8);
+    }
   }
-  &:hover .overview-icon { background-color: transparentize($color, .87);}
+  &:hover .overview-icon { background-color: transparentize($color, .7);}
 
   &:selected .overview-icon,
   &:focus .overview-icon {
-    background-color: transparentize($color, .87);
-    &:hover .overview-icon { background-color: transparentize($color, .84);}
-    &:active .overview-icon { background-color: transparentize($color, .87);}
+    background-color: transparentize($color, .75);
+    &:hover .overview-icon { background-color: transparentize($color, .65);}
+    &:active .overview-icon { background-color: transparentize($color, .75);}
   }
-  &:active .overview-icon { background-color: transparentize($color, .84);}
+  &:active .overview-icon { background-color: transparentize($color, .75);}
   &:outlined .overview-icon,
   &:checked .overview-icon {
-    background-color: transparentize($color, .81);
-    &:active .overview-icon { background-color: transparentize($color, .78);}
-    &:hover .overview-icon { background-color: transparentize($color, .75);}
+    background-color: transparentize($color, .75);
+    &:active .overview-icon { background-color: transparentize($color, .75);}
+    &:hover .overview-icon { background-color: transparentize($color, .7);}
   }
   &:drop .overview-icon {
     border: 2px solid transparentize($selected_bg_color, .2); //already 2px transparent so no jumping
