@@ -34,7 +34,7 @@ $app_icon_size: 96px;
 // app folders
 .app-well-app.app-folder {
   @include overview_icon($osd_fg_color, $flat: false);
-  background-color: $dash_highlight_color;
+  background-color: transparent;
 }
 
 // expanded folder
