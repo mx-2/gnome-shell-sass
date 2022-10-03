@@ -317,16 +317,17 @@
   margin: $base_margin;
 
   @if $flat {
-    @include button(undecorated);
+    @include button(undecorated, $c:$card_bg_color, $shadow:false);
     box-shadow: none !important;
   } @else {
-    @include button(normal);
+    @include button(normal, $c:$card_bg_color);
   }
-  &:hover {@include button(hover);}
-  &:active {@include button(active);}
-  &:focus {@include button(focus);}
+
+  &:hover {@include button(hover, $c:$card_bg_color);}
+  &:active {@include button(active, $c:$card_bg_color);}
+  &:focus {@include button(focus, $c:$card_bg_color);}
   &:insensitive {
-    @include button(insensitive);
+    @include button(insensitive, $c:$card_bg_color);
     @if $flat {
      background-color: transparent;
     }

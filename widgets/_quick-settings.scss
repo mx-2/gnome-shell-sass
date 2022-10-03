@@ -1,6 +1,6 @@
 .quick-settings {
   padding: $base_padding*3;
-  border-radius: $modal_radius*2.25;
+  border-radius: $modal_radius;
 
   .icon-button, .button {
     padding: $base_padding*1.75;
@@ -21,7 +21,7 @@
 }
 
 .quick-toggle {
-  &:checked { @include button(default, $c:$selected_bg_color); }
+  &:checked { @include button(checked); }
 
   & > StBoxLayout { spacing: $base_padding*1.5; }
 
@@ -62,7 +62,7 @@
     border-color: transparentize($fg_color, .75);
 
     &:checked {
-      @include button(default, $c:$selected_bg_color);
+      @include button(default);
       border-color: $selected_borders_color;
     }
 
@@ -100,8 +100,9 @@
   border-radius: $base_border_radius*3;
   padding: $base_padding*2;
   margin: $base_padding*2 $base_padding*3 0;
+  border: 1px solid $borders_color;
 
-  .popup-menu-item > StIcon { -st-icon-style: symbolic; }
+  .popup-menu-item > StIcon { -st-icon-style: regular; }
 
   & .header {
     spacing-rows: 0.5 * $base_padding;
@@ -142,7 +143,7 @@
 
     &:insensitive {
       @include button(normal);
-      background-color: transparent;
+      background-color: $insensitive_bg_color;
     }
   }
 }
@@ -178,7 +179,6 @@
 
 .background-apps-quick-toggle {
   min-height: 40px;
-  background-color: transparent;
 
   & StIcon { icon-size: $base_icon_size !important; }
 }
