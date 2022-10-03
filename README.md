@@ -2,7 +2,7 @@
 
 A Gnome shell theme which aims to bring back the look of the old
 transparent-black and colorful icons default shell from earlier Gnome versions
-to Gnome 42.
+to Gnome 43.
 
 Note: To get colorful icons you have to install an icon theme which provides
 full color shell icons as well.
@@ -47,9 +47,7 @@ PNG wallpaper you like. Just make sure that the wallpaper file is readable by
 all users (mode 644) after modification.
 
 ### Special Icons
-Furthermore, you can use the build\_gresource script to embed custom, otherwise
-non-themable, icons for "no-notifications.svg" and "no-events.svg" in the
-gresource file. To do so, place your icons within the "gnome-shell/icons" directory.
+This is no longer necessary as of Gnome 43.
 
 ---
 Original README below

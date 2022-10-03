@@ -15,7 +15,7 @@ WRKDIR = "#{ENV["TMPDIR"] || "/tmp"}/_gdm"
 gnome_version, result = Open3.capture2("gnome-shell --version")
 raise "get version failed" unless result.success?
 gnome_version = gnome_version.match(/^GNOME Shell (\d+)/)[1]
-if gnome_version != "42"
+if gnome_version != "43"
   raise "Unsupported gnome version."
 end
 
