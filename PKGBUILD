@@ -1,5 +1,5 @@
 pkgname=good-old-shell-theme
-pkgver=45.0
+pkgver=45.1
 pkgrel=1
 pkgdesc="A Gnome shell theme based on earlier gnome versions with colorful icons."
 arch=(any)

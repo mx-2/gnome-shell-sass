@@ -22,6 +22,7 @@ gresource:
 	./build_gresource.rb
 
 tar:
+	install -d release/good-old-shell/gnome-shell/
 	install -m 644 gnome-shell.css release/good-old-shell/gnome-shell/
 	install -m 644 overview-wallpaper.png release/good-old-shell/gnome-shell/
 	install -m 644 login-dialog-frame.png release/good-old-shell/gnome-shell/
