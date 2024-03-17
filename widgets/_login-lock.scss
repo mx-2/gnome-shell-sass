@@ -1,4 +1,4 @@
-$_gdm_bg: $system_base_color;
+$_gdm_bg: $system_bg_color;
 $_gdm_fg: $system_fg_color;
 $_gdm_dialog_width: 25em;
 
@@ -22,7 +22,7 @@ $_gdm_dialog_width: 25em;
 // uses dark grey system styles
 .login-dialog {
   .login-dialog-prompt-entry {
-    @extend %system_entry;
+    @extend %osd_entry;
   }
   background: url(file:///usr/share/themes/good-old-shell/gnome-shell/login-dialog-frame.png);
   /*background-size: 1920px 1080px;*/
@@ -39,7 +39,7 @@ $_gdm_dialog_width: 25em;
   &.switch-user-button,
   &.login-dialog-session-list-button {
     @extend .icon-button;
-    @extend %system_button;
+    @extend %osd_button;
   }
 
   &.cancel-button {
@@ -99,12 +99,7 @@ $_gdm_dialog_width: 25em;
 
 .login-dialog-not-listed-button {
   // use button styling
-  @extend %button_common;
-  @include button(normal, $tc:$_gdm_fg, $c:$_gdm_bg, $style: flat, $always_dark: true);
-  &:focus { @include button(focus, $tc:$_gdm_fg, $c:$_gdm_bg, $style: flat, $always_dark: true);}
-  &:hover { @include button(hover, $tc:$_gdm_fg, $c:$_gdm_bg, $style: flat, $always_dark: true);}
-  &:active { @include button(active, $tc:$_gdm_fg, $c:$_gdm_bg, $style: flat, $always_dark: true);}
-
+  @extend %osd_button;
   padding: 0 $base_padding;
   margin: $base_padding;
 }
@@ -153,11 +148,12 @@ $_gdm_dialog_width: 25em;
     .login-dialog-user-list-item {
       // use button styling
       @extend %button_common;
-      @include button(normal, $tc:$_gdm_fg, $c:$system_base_color, $always_dark: true);
-      &:selected,
-      &:focus { @include button(focus, $tc:$_gdm_fg, $c:$system_base_color, $always_dark: true);}
-      &:hover { @include button(hover, $tc:$_gdm_fg, $c:$system_base_color, $always_dark: true);}
-      &:active { @include button(active, $tc:$_gdm_fg, $c:$system_base_color, $always_dark: true);}
+      @include button(normal, $tc:$osd_fg_color, $c:$osd_bg_color);
+      &:focus { @include button(focus, $tc:$osd_fg_color, $c:$bubble_buttons_color);}
+      &:hover { @include button(hover, $tc:$osd_fg_color, $c:$bubble_buttons_color);}
+      &:active { @include button(active, $tc:$osd_fg_color, $c:$bubble_buttons_color);}
+      &:checked { @include button(checked, $tc:$osd_fg_color, $c:$bubble_buttons_color);}
+      &:insensitive { @include button(insensitive, $tc:$osd_fg_color, $c:$osd_bg_color);}
 
       border-radius: $modal_radius;
       padding: $base_padding * 1.5;
