@@ -5,5 +5,10 @@
 }
 
 #overviewGroup {
-  background-color: $system_base_color;
+  background: url("overview-wallpaper.png");
+  background-size: cover;
+  /*background-size: 1920px 1080px;*/
+  left: 0px;
+  top: 0px;
+  background-repeat: no-repeat;
 }
