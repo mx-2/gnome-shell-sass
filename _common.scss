@@ -32,6 +32,9 @@ $base_padding: 6px;         // internal padding of elements
 $base_margin: 4px;          // margin between elements
 $base_border_radius: 8px;   // radii on all elements
 
+$bubble_button_radius: $base_border_radius*1.25;
+$button_mix_factor: if($variant == 'light', 12%, 9%);
+
 // Radius used to make sure elements that have rounded corners stay as such.
 // This is a workaround for 50% not working.
 $forced_circular_radius: 999px;
