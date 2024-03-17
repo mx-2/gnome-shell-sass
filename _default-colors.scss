@@ -32,10 +32,10 @@ $link_visited_color: transparentize($link_color, .6);
 
 // special cased widget definitions
 $background_mix_factor: if($variant == 'light', 12%, 9%); // used to boost the color of backgrounds in different variants
-$border_opacity: if($variant == 'light', .85, .9); // change the border opacity in different variants
+$border_opacity: if($variant == 'light', .85, 0.1); // change the border opacity in different variants
 
 // shadows
-$shadow_color: if($variant == 'light', rgba(0,0,0,.05), rgba(0,0,0,0.2));
+$shadow_color: if($variant == 'light', rgba(0,0,0,.05), transparentize(white, 0.8));
 $text_shadow_color: if($variant == 'light', rgba(255,255,255,0.3), rgba(0,0,0,0.2));
 
 // focus colors
