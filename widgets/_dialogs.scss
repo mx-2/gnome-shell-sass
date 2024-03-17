@@ -2,7 +2,9 @@
 
 // style for all dialogs
 .modal-dialog {
+  color: $fg_color;
   background-color: $bg_color;
+  border: 2px solid $borders_color;
   border-radius: $alert_radius;
   padding: $base_padding * 4;
   spacing: $base_padding * 3;
