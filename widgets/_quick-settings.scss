@@ -1,6 +1,6 @@
 .quick-settings {
   padding: $base_padding * 3;
-  border-radius: $modal_radius * 2.25;
+  border-radius: $modal_radius * 1.25;
 
   .icon-button, .button {
     padding: $base_padding * 1.75;
@@ -17,11 +17,10 @@
   min-width: 12em;
   max-width: 12em;
   min-height: $scalable_icon_size * 3; // use icon size so the button scales
-  border:none;
+  border: 1px solid transparent;
 }
 
 .quick-toggle {
-  background-color: none;
   &:checked { @extend %default_button;}
 
   & > StBoxLayout { spacing: $base_padding * 1.5; }
@@ -95,12 +94,13 @@
 
   &:insensitive {
     // override insensitive style on submenu
-    @include button(normal);
+    @include button(normal, $style:card);
   }
 
   border-radius: $base_border_radius * 3;
 
-  margin: $base_padding * 2 $base_padding * 3 0;
+  margin: $base_padding * 2 $base_padding * 3 $base_padding * 2;
+  border: 1px solid $borders_color;
 
   .popup-menu-item > StIcon {
     -st-icon-style: regular;
@@ -154,7 +154,7 @@
 
     &:insensitive {
       @include button(normal);
-      background-color: transparent;
+      background-color: $insensitive_bg_color;
     }
   }
 }
@@ -186,7 +186,6 @@
 
 .background-apps-quick-toggle {
   min-height: to_em(40px);
-  background-color: transparent;
 
   & StIcon { icon-size: $scalable_icon_size !important; }
 }
