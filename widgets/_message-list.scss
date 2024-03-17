@@ -20,7 +20,7 @@
     > StIcon {
       icon-size: 96px; // non-em asset size
       margin-bottom: $base_margin * 3;
-      -st-icon-style: symbolic;
+      -st-icon-style: regular;
     }
   }
 }
@@ -117,7 +117,7 @@
     // header source icon
     .message-source-icon {
       icon-size: $scalable_icon_size; // 16px
-      -st-icon-style: symbolic;
+      -st-icon-style: regular;
     }
 
     // box that contains the source icon, source name and timestamp of the message

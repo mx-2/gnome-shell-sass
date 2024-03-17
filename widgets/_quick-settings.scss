@@ -160,7 +160,7 @@ $quick_toggle_checked_separator_color: if(
   margin: $base_padding * 2 $base_padding * 3 0;
 
   .popup-menu-item > StIcon {
-    -st-icon-style: symbolic;
+    -st-icon-style: regular;
     icon-size: $scalable_icon_size;
   }
 
@@ -221,7 +221,7 @@ $quick_toggle_checked_separator_color: if(
 }
 
 .bt-device-item {
-  .popup-menu-icon { -st-icon-style: symbolic; }
+  .popup-menu-icon { -st-icon-style: regular; }
 }
 
 .bt-menu-placeholder.popup-menu-item {
