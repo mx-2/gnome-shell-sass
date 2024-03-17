@@ -19,7 +19,7 @@ $app_folder_size: 720px;
 
 // items in the app grid and dash
 .overview-tile {
-  @include tile_button($bg:$system_base_color);
+  @include tile_button($bg:$system_fg_color);
 
   // override the %tile style
   border-radius: $base_border_radius*3;
@@ -38,7 +38,7 @@ $app_folder_size: 720px;
 
 // app folders
 .app-folder {
-  @include tile_button($bg:$system_base_color, $raised: true);
+  @include tile_button($fg:$osd_fg_color, $bg:$system_fg_color, $raised: true);
 }
 
 // Running app indicator (also shown in dash)
@@ -66,7 +66,8 @@ $app_folder_size: 720px;
   height: $app_folder_size;
 
   border-radius: $modal_radius * 4;
-  background-color: $system_overlay_bg_color;
+  border: 2px solid $osd_outer_borders_color;
+  background-color: $card_bg_color;
   color: $system_fg_color;
 
   @if $contrast == 'high' {
@@ -93,9 +94,9 @@ $app_folder_size: 720px;
   }
 
   & .icon-button {
-    @include button(normal, $tc:$system_fg_color, $c:$system_overlay_bg_color, $always_dark: true);
-    &:hover { @include button(hover, $tc:$system_fg_color, $c:$system_overlay_bg_color, $always_dark: true);}
-    &:active { @include button(active, $tc:$system_fg_color, $c:$system_overlay_bg_color, $always_dark: true);}
+    @include button(normal, $tc:$system_fg_color, $c:$bubble_buttons_color, $always_dark: true);
+    &:hover { @include button(hover, $tc:$system_fg_color, $c:$bubble_buttons_color, $always_dark: true);}
+    &:active { @include button(active, $tc:$system_fg_color, $c:$bubble_buttons_color, $always_dark: true);}
   }
 
   & .page-indicators {

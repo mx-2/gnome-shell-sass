@@ -74,6 +74,7 @@ end
 css_filename = "#{WRKDIR}/theme/gnome-shell.css"
 css_file_prefix = css_filename.sub(/\.css$/, "")
 css = File.read("#{SRCDIR}/gnome-shell.css")
+css = css.gsub("overview-wallpaper.png", "file://#{File.expand_path("#{SRCDIR}/overview-wallpaper.png")}")
 File.write("#{css_file_prefix}-dark.css", css)
 File.write("#{css_file_prefix}-high-contrast.css", css)
 File.write("#{css_file_prefix}-light.css", css)

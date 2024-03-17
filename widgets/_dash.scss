@@ -15,7 +15,8 @@ $dash_spacing: $base_margin * 0.5;
 
   // background behind item container
   .dash-background {
-    background-color: $dash_background_color;
+    background-color: $osd_bg_color;
+    border: 2px solid $osd_borders_color;
     border-radius: $dash_border_radius;
     padding-top: $dash_padding;
     padding-bottom: $dash_padding;

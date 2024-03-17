@@ -5,6 +5,11 @@ $window_close_button_color: transparentize(lighten($system_bg_color, 7%), .02);
 .window-picker {
   // Space between window thumbnails
   spacing: $base_padding;
+  background: opacify($osd_bg_color, 0.1);
+  border-radius: 16px;
+  border: 2px solid $borders_color;
+  box-shadow: 0 1px 2px 0 transparentize($fg_color, 0.6);
+  padding: 8px;
 }
 
 // Window titles

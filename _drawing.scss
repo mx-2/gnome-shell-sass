@@ -345,23 +345,24 @@
   //
 
   @extend %tile;
+  $tile_bg: transparentize($bg, 0.7);
 
   @if $raised {
-    @include button(normal, $tc:$fg, $c:$bg, $always_dark: $system);
-    &:focus { @include button(focus, $tc:$fg, $c:$bg, $always_dark: $system);}
-    &:hover { @include button(hover, $tc:$fg, $c:$bg, $always_dark: $system);}
-    &:active { @include button(active, $tc:$fg, $c:$bg, $always_dark: $system);}
+    @include button(normal, $tc:$fg, $c:transparentize($bg, 0.8), $style: flat, $always_dark: $system);
+    &:focus { @include button(focus, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
+    &:hover { @include button(hover, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
+    &:active { @include button(active, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
     &:highlighted,&:selected,
-    &:checked { @include button(checked, $tc:$fg, $c:$bg, $always_dark: $system);}
-    &:insensitive { @include button(insensitive, $tc:$fg, $c:$bg, $always_dark: $system);}
+    &:checked { @include button(checked, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
+    &:insensitive { @include button(insensitive, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
   } @else {
-    @include button(normal, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);
-    &:focus { @include button(focus, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:hover { @include button(hover, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:active { @include button(active, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
+    @include button(normal, $tc:$fg, $c:transparent, $style: flat, $always_dark: $system);
+    &:focus { @include button(focus, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
+    &:hover { @include button(hover, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
+    &:active { @include button(active, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
     &:highlighted,&:selected,
-    &:checked { @include button(checked, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
-    &:insensitive { @include button(insensitive, $tc:$fg, $c:$bg, $style: flat, $always_dark: $system);}
+    &:checked { @include button(checked, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
+    &:insensitive { @include button(insensitive, $tc:$fg, $c:$tile_bg, $style: flat, $always_dark: $system);}
   }
 
   &:drop {
