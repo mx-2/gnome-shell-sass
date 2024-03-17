@@ -1,6 +1,6 @@
 .quick-settings {
   padding: $base_padding * 3;
-  border-radius: $modal_radius * 2.25;
+  border-radius: $modal_radius * 1.25;
 
   .icon-button, .button {
     padding: $base_padding * 1.75;
@@ -17,6 +17,7 @@
   min-width: 12em;
   max-width: 12em;
   min-height: $scalable_icon_size * 3; // use icon size so the button scales
+  border: 1px solid transparent;
 }
 
 // standalone toggle button
@@ -88,50 +89,23 @@
 // This is bit of a mess but needed to have working colors in
 // both light, dark and high contrast styles.
 
-// menu button colors
-$quick_toggle_menubutton_bg_color: if(
-  $contrast == 'high', lighten($bg_color, 22%),
-  if($variant == 'light', darken($bg_color, 5%), lighten($bg_color, 8%))
-);
-$quick_toggle_menubutton_checked_bg_color: if(
-  $contrast == 'high', st-mix(-st-accent-color, $fg_color, 75%),
-  if($variant == 'light', st-mix(-st-accent-color, $fg_color, 92%), st-mix(-st-accent-color, $fg_color, 85%))
-);
-
-// separator colors
-$quick_toggle_separator_color: if(
-  $contrast == 'high', transparent,
-  transparentize($fg_color, .75)
-);
-
-$quick_toggle_checked_separator_color: if(
-  $contrast == 'high', transparent,
-  if($variant == 'light', st-mix(-st-accent-fg-color, -st-accent-color, 20%), st-mix(-st-accent-fg-color, -st-accent-color, 30%),)
-);
-
 .quick-toggle-has-menu {
   & .quick-toggle-menu-button {
-    @include button(normal, $c: $quick_toggle_menubutton_bg_color);
-    &:focus { @include button(focus, $c: $quick_toggle_menubutton_bg_color);}
-    &:hover { @include button(hover, $c: $quick_toggle_menubutton_bg_color);}
-    &:active { @include button(active, $c: $quick_toggle_menubutton_bg_color);}
+    @extend %button;
 
     &:checked {
-      @include button(normal, $c: $quick_toggle_menubutton_checked_bg_color, $tc:-st-accent-fg-color, $style: default);
-      &:focus { @include button(focus, $c: $quick_toggle_menubutton_checked_bg_color, $tc:-st-accent-fg-color, $style: default);}
-      &:hover { @include button(hover, $c: $quick_toggle_menubutton_checked_bg_color, $tc:-st-accent-fg-color, $style: default);}
-      &:active { @include button(active, $c: $quick_toggle_menubutton_checked_bg_color, $tc:-st-accent-fg-color, $style: default);}
+      @extend %default_button;
     }
   }
 
   &:checked {
     & .quick-toggle-separator {
-      background-color: $quick_toggle_checked_separator_color;
+      background-color: transparent;
     }
   }
 
   & .quick-toggle-separator {
-    background-color: $quick_toggle_separator_color;
+    background-color: transparent;
   }
 }
 
@@ -152,12 +126,13 @@ $quick_toggle_checked_separator_color: if(
 
   &:insensitive {
     // override insensitive style on submenu
-    @include button(normal);
+    @include button(normal, $style:card);
   }
 
   border-radius: $base_border_radius * 3;
 
-  margin: $base_padding * 2 $base_padding * 3 0;
+  margin: $base_padding * 2 $base_padding * 3 $base_padding * 2;
+  border: 1px solid $borders_color;
 
   .popup-menu-item > StIcon {
     -st-icon-style: regular;
@@ -211,7 +186,7 @@ $quick_toggle_checked_separator_color: if(
 
     &:insensitive {
       @include button(normal);
-      background-color: transparent;
+      background-color: $insensitive_bg_color;
     }
   }
 }
@@ -243,7 +218,6 @@ $quick_toggle_checked_separator_color: if(
 
 .background-apps-quick-toggle {
   min-height: to_em(40px);
-  background-color: transparent;
 
   & StIcon { icon-size: $scalable_icon_size !important; }
 }
