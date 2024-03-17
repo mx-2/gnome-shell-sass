@@ -1,12 +1,22 @@
 /* Date/Time Menu */
 
+%calendar_button {
+  @include button(undecorated, $style: flat);
+  &:focus { @include button(focus, $style: flat);}
+  &:hover { @include button(hover, $style: flat);}
+  &:insensitive { @include button(insensitive, $style: flat);}
+  &:selected,
+  &:active { @include button(active, $style: flat);}
+  &:checked { @include button(checked, $style: flat);}
+}
+
 // overall menu
 #calendarArea {
   padding: $base_margin;
 }
 
 .datemenu-popover {
-  border-radius: $base_border_radius * 1.5 + $base_padding * 3;
+  border-radius: $modal_radius * 1.25;
 }
 
 // calendar menu side column
@@ -22,6 +32,7 @@
 // today button (the date)
 .datemenu-today-button {
   @extend %card_flat;
+  color: $insensitive_fg_color!important;
   padding: $base_padding * 1.5;
 
   // weekday label
@@ -37,9 +48,7 @@
 
 // the mini calendar
 .calendar {
-  @extend %card_flat;
-  margin-top: 0;
-  padding: 0;
+  @extend %card;
 
   // month header
   .calendar-month-header {
@@ -53,7 +62,7 @@
     // month label
     .calendar-month-label {
       @extend %heading;
-      @extend %flat_button;
+      @extend %calendar_button;
       color: $fg_color !important;
       padding: 8px 0;
       width: 10em;
@@ -62,7 +71,7 @@
     }
 
     .pager-button {
-      @extend .icon-button, .flat;
+      @extend .icon-button;
       height: 2.6em;
       width: 2.6em;
       padding: 0;
@@ -73,7 +82,7 @@
   .calendar-day {
     @extend %numeric;
     @extend %smaller;
-    @extend %flat_button;
+    @extend %calendar_button;
     border-radius: $forced_circular_radius;
     height: 3em;
     width: 3em;
@@ -109,7 +118,11 @@
     }
 
     &.calendar-today {
-      @extend %default_button;
+      @include button(normal, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: default);
+      &:focus { @include button(focus, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: default);}
+      &:hover { @include button(hover, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: default);}
+      &:insensitive { @include button(insensitive, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: default);}
+      &:active { @include button(active, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: default);}
       // override colors above for when today is a weekend
       color: $selected_fg_color !important;
       &.calendar-day-with-events {
@@ -127,7 +140,7 @@
   .calendar-day-heading {
     @extend %numeric;
     @extend %smaller;
-    @extend %flat_button;
+    @extend %calendar_button;
     font-weight: bold;
     text-align: center;
     margin: $base_margin;
