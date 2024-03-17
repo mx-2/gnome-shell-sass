@@ -80,10 +80,11 @@
 .message {
   @extend %card;
   padding: $base_padding;
-  margin: 0;
+  margin: $base_padding;
   border-radius: $modal_radius;
 
   background-color: if($variant == 'light', $card_bg_color, lighten($card_bg_color, 5%));
+  box-shadow: 0 2px 1px $card_shadow_color;
 
   &:second-in-stack {
     background-color: if($variant == 'light', darken($card_bg_color, 4%), darken($card_bg_color, 1%));

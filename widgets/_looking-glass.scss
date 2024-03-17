@@ -70,8 +70,7 @@
   }
 
   .notebook-tab {
-    @extend %osd_button_flat;
-    background-color: transparent;
+    @extend %osd_button;
     -natural-hpadding: $base_padding * 2;
     -minimum-hpadding: $base_padding * 2;
     padding: $base_padding $base_padding * 2;
