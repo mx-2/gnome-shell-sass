@@ -172,18 +172,25 @@
   // background color mix override for flat style; the button bg color is the background color input
   @if $style == 'flat' { $button_bg_color: $c;}
   // background color mix override for default button style
-  @if $style == 'default' { $button_bg_color: $c;}
+  @if $style == 'default' { $button_bg_color: st-mix($success_color, $button_bg_color, 30%); }
 
   // background color adjustment factors
   // the % a color is lightened or darkened for button states
-  $hover_factor: 4%;
+  $hover_factor: 25%;
+  $border_factor: 40%;
   $active_factor: 9%;
   $checked_factor: 8%;
   $insensitive_factor: 3%;
 
-  // flat style overrides
-  @if $style == 'flat' {
-    $hover_factor: 7%; // stronger factor in flat style
+  $button_border_color: if($variant == 'light', st-darken($c, $border_factor), st-lighten($c, $border_factor));
+
+  border: 1px solid transparent;
+  box-shadow: 0 1px 1px 0 transparent;
+  @if $style != 'flat' and not ($type == undecorated or $type == insensitive) {
+    border: 1px solid $button_border_color;
+    box-shadow: 0 1px 1px 0 $shadow_color;
+    text-shadow: 0 1px $bg_color;
+    icon-shadow: 0 1px $bg_color;
   }
 
   // button base state background colors
@@ -210,7 +217,7 @@
   }
 
   // background color override for buttons that use transparency
-  // styles: dialogs bubbles, lockscreen
+  // styles: notification bubbles, lockscreen
   @if $style == 'dialog' or $style == 'lockscreen' {
     $button_bg_color: transparentize($tc, .9);
     $hover_button_bg_color: transparentize($tc, .87);
@@ -286,6 +293,7 @@
   @else if $type == 'checked' {
     color: $tc;
     background-color: $checked_button_bg_color;
+    @include focus_ring($fc:st-lighten($button_border_color, 9%));
     &:hover { background-color: $checked_hover_button_bg_color;}
     &:active { background-color: $checked_active_button_bg_color;}
   }
@@ -305,7 +313,7 @@
   // focused button
   @else if $type == 'focus' {
     color: $tc;
-    @include focus_ring();
+    @include focus_ring($fc:st-lighten($button_border_color, 9%));
 
     // use a different focus ring color for default style
     @if $style == 'default' {
