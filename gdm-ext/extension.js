@@ -16,13 +16,23 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 export default class PlainExampleExtension extends Extension {
     enable() {
-        Main.setThemeStylesheet(
-            "/usr/share/themes/good-old-shell/gnome-shell/gnome-shell.css"
-        );
+        let local_theme = GLib.get_home_dir() +
+            "/.themes/good-old-shell/gnome-shell/gnome-shell.css";
+        let local_file = Gio.file_new_for_path(local_theme);
+
+        if (local_file.query_exists(null)) {
+            Main.setThemeStylesheet(local_theme);
+        } else {
+            Main.setThemeStylesheet(
+                "/usr/share/themes/good-old-shell/gnome-shell/gnome-shell.css"
+            );
+        }
         Main.loadTheme();
     }
 

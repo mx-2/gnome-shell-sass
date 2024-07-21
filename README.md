@@ -56,6 +56,15 @@ wallpaper for the login screen. You can replace the provided default with any
 PNG wallpaper you like. Just make sure that the wallpaper file is readable by
 all users (mode 644) after modification.
 
+### Lock Screen
+The Gnome-Shell extension can also be used to apply Good-Old-Shell to the shell
+and the lock-screen. To do so, enable the Good-Old-Shell extension in your
+user-specific Gnome extension settings and disable the user-themes extension.
+
+If Good-Old-Shell is installed this way, a per-user copy of the theme can be
+installed to `~/.themes/good-old-shell` to allow further per user customization,
+like a custom overview-wallpaper.
+
 ### Special Icons
 This is no longer necessary as of Gnome 44.
 
