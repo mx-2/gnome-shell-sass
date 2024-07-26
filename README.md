@@ -36,18 +36,13 @@ To install the extension execute the following steps:
 * Install Good-Old-Shell system-wide into `/usr/share/themes/good-old-shell`.
 * Install the Gnome extension from the `extension/good-old-shell@mx-2` directory
   to `/usr/share/gnome-shell/extensions/good-old-shell@mx-2`.
-* Copy the script `utils/install-gdm-ext.py` to `/tmp` set the correct permissions
-  and execute it as `gdm` user:
+* Execute the script `utils/install-gdm-ext.py` as `gdm` user:
   ```
-  cp install-gdm-ext.py /tmp/
-  chmod 755 /tmp/install-gdm-ext.py
-  sudo -u gdm ./install-gdm-ext.py enable
+  sudo -u gdm /usr/share/themes/good-old-shell/utils/install-gdm-ext.py enable
   ```
 * To uninstall, execute the script with the disable argument:
   ```
-  cp install-gdm-ext.py /tmp/
-  chmod 755 /tmp/install-gdm-ext.py
-  sudo -u gdm ./install-gdm-ext.py disable
+  sudo -u gdm /usr/share/themes/good-old-shell/utils/install-gdm-ext.py disable
   ```
 
 When the GDM theme is enabled, the file
