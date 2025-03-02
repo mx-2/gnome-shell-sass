@@ -120,9 +120,6 @@ $default_key_bg_color: if($variant=='light', darken($key_bg_color, 11%), darken(
 // emoji
 .emoji-page {
   .keyboard-key {
-    background-color: transparent;
-    border: none;
-    color: initial;
   }
 }
 
