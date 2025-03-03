@@ -8,6 +8,7 @@ url=""
 branch=good-old-shell-47.2
 source=("git+https://github.com/mx-2/gnome-shell-sass.git#branch=$branch")
 sha256sums=("SKIP")
+backup=("usr/share/themes/good-old-shell/gnome-shell/gdm-wallpaper.png")
 
 build() {
     cd "${srcdir}/gnome-shell-sass"
