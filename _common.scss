@@ -205,12 +205,12 @@ stage {
   padding: $base_padding $base_padding * 2;
   border-radius: $base_border_radius;
 
-  @include button(normal, $style: notification);
-  &:focus { @include button(focus, $style: notification);}
-  &:hover { @include button(hover, $style: notification);}
-  &:active { @include button(active, $style: notification);}
-  &:checked { @include button(checked, $style: notification);}
-  &:insensitive { @include button(insensitive, $style: notification);}
+  @include button(normal, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: notification);
+  &:focus { @include button(focus, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: notification);}
+  &:hover { @include button(hover, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: notification);}
+  &:active { @include button(active, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: notification);}
+  &:checked { @include button(checked, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: notification);}
+  &:insensitive { @include button(insensitive, $c:$bubble_buttons_color, $tc:$selected_fg_color, $style: notification);}
 }
 
 // buttons in dialogs
