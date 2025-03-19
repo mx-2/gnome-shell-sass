@@ -227,11 +227,11 @@
 
   // background color overrides for notification style
   @if $style == 'notification' {
-    $button_bg_color: transparentize($tc, .85);
-    $hover_button_bg_color: transparentize($tc, .7);
+    $button_bg_color: transparentize($c, .85);
+    $hover_button_bg_color: transparentize($c, .7);
     $insensitive_button_bg_color: transparentize($tc, .9);
-    $active_button_bg_color: transparentize($tc, .8);
-    $active_hover_button_bg_color: transparentize($tc, .8);
+    $active_button_bg_color: transparentize($c, .8);
+    $active_hover_button_bg_color: transparentize($c, .8);
   }
 
   // flat style overrides

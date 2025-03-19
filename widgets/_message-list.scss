@@ -76,11 +76,16 @@
   .message-collapse-button {
     @extend .icon-button;
     color: $fg_color;
-    background-color: transparentize($fg_color, 0.8);
     padding: 4px !important;
     border: 4px transparent solid;
-    &:hover {background-color: transparentize($fg_color, 0.7);}
-    &:active {background-color: transparentize($fg_color, 0.8);}
+    &:hover {
+      padding: 4px;
+      border: 4px transparent solid;
+    }
+    &:active {
+      padding: 4px;
+      border: 4px transparent solid;
+    }
   }
 }
 
@@ -91,8 +96,13 @@
   margin: $base_padding;
   border-radius: $modal_radius;
 
-  background-color: if($variant == 'light', $card_bg_color, lighten($card_bg_color, 5%));
+  background-color: opacify(if($variant == 'light', $card_bg_color, lighten($card_bg_color, 5%)), 1.0);
   box-shadow: 0 2px 1px $card_shadow_color;
+
+  &:hover {
+    // hover-factor copied from _drawing
+    background-color: st-lighten(opacify($card_bg_color, 1.0), 25%);
+  }
 
   &:second-in-stack {
     background-color: if($variant == 'light', darken($card_bg_color, 4%), darken($card_bg_color, 1%));
